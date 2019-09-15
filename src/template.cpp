@@ -19,9 +19,9 @@ using namespace std;
 
 typedef long long ll;
 
-/* --- INFの値が適切か確認する --- */
+/* --- INFやMODの値が適切か確認する --- */
 // const int INF = 1 << 30;
 // const ll INF = 1LL << 60;
-// const int MOD = 1000000007;
+// const ll MOD = 1000000007;
 
 int main() {}
