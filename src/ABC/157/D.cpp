@@ -24,58 +24,29 @@ typedef long long ll;
 // const ll INF = 1LL << 60;
 // const ll MOD = 1000000007;
 
-class UnionFindTree {
- private:
-  int nodeSize;
-  vector<int> parent;
-  vector<int> rank;
-  vector<int> treeSize;
+struct UnionFindTree {
+  vector<int> data;
 
- public:
-  UnionFindTree(int ns) {
-    nodeSize = ns;
-    parent = vector<int>(nodeSize);
-    rank = vector<int>(nodeSize, 0);
-    treeSize = vector<int>(nodeSize, 1);
-
-    for (int i = 0; i < nodeSize; i++) {
-      parent[i] = i;
-    }
-  }
-
-  int find(int x) {
-    if (parent[x] == x) {
-      return x;
-    } else {
-      return parent[x] = find(parent[x]);
-    }
-  }
+  UnionFindTree(int sz) { data.assign(sz, -1); }
 
   bool unite(int x, int y) {
     x = find(x);
     y = find(y);
-
-    if (x == y) {
-      return false;
-    }
-
-    if (rank[x] < rank[y]) {
-      parent[x] = y;
-      treeSize[y] += treeSize[x];
-    } else {
-      parent[y] = x;
-      treeSize[x] += treeSize[y];
-      if (rank[x] == rank[y]) {
-        rank[x]++;
-      }
-    }
-
+    if (x == y) return false;
+    if (data[x] > data[y]) swap(x, y);
+    data[x] += data[y];
+    data[y] = x;
     return true;
+  }
+
+  int find(int k) {
+    if (data[k] < 0) return k;
+    return data[k] = find(data[k]);
   }
 
   bool same(int x, int y) { return find(x) == find(y); }
 
-  int getSize(int x) { return treeSize[find(x)]; }
+  int size(int k) { return -data[find(k)]; }
 };
 
 int main() {
@@ -105,7 +76,7 @@ int main() {
     }
   }
 
-  rep(i, n) { cout << uf.getSize(i) - 1 - fri[i] - nofri[i] << ' '; }
+  rep(i, n) { cout << uf.size(i) - 1 - fri[i] - nofri[i] << ' '; }
 
   cout << endl;
 }
