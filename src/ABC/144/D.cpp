@@ -32,9 +32,9 @@ int main() {
   double ans;
   // 台形
   if (2 * x >= a * a * b) {
-    ans = (PI / 2 - atan(a * a * a / (2 * (a * a * b - x)))) * 180 / PI;
+    ans = atan(2 * (a * a * b - x) / (a * a * a)) * 180 / PI;
   } else {
-    ans = (PI / 2 - atan(2 * x / (a * b * b))) * 180 / PI;
+    ans = atan(a * b * b / (2 * x)) * 180 / PI;
   }
 
   printf("%.10f\n", ans);
