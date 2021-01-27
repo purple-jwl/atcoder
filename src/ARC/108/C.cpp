@@ -47,23 +47,15 @@ void dfs(int cur, int prev, int n) {
 int main() {
   int n, m;
   cin >> n >> m;
-  set<int> st;
+
   rep(i, m) {
     int u, v, c;
     cin >> u >> v >> c;
     u--;
     v--;
     c--;
-    st.insert(u);
-    st.insert(v);
-
     edge[u].eb(mp(v, c));
     edge[v].eb(mp(u, c));
-  }
-
-  if (st.size() != n) {
-    cout << "No" << endl;
-    return 0;
   }
 
   p[0] = 0;
