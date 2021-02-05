@@ -4,7 +4,6 @@
 #define rep(i, n) REP(i, 0, n)
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
-#define sz(x) (int)(x.size())
 #define popcount(x) __builtin_popcount(x)
 #define popcountll(x) __builtin_popcountll(x)
 #define uniq(x) x.erase(unique(x.begin(), x.end()), x.end())
