@@ -1,4 +1,4 @@
 *.class
 a.out
-in*
-out*
+in*.txt
+out*.txt
