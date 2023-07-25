@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+
+#define REP(i, x, n) for (int i = x; i < (int)(n); i++)
+#define rep(i, n) REP(i, 0, n)
+#define all(x) (x).begin(), (x).end()
+#define rall(x) (x).rbegin(), (x).rend()
+#define uniq(x) x.erase(unique(x.begin(), x.end()), x.end())
+
+using namespace std;
+
+typedef long long ll;
+
+int main() {
+  ll k;
+  cin >> k;
+  string ans = "";
+  while (k > 0) {
+    if (k % 2 == 0) {
+      ans += "0";
+    } else {
+      ans += "2";
+    }
+    k /= 2;
+  }
+  reverse(all(ans));
+
+  cout << ans << endl;
+}
